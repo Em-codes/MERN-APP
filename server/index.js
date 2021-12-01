@@ -22,6 +22,11 @@ app.post("/createUser", async (req, res) => {
     res.json(user)
 })
 
+app.post("/:id", async (req, res) => {
+    const del_User = await UserModel.findByIdAndDelete(req.params.id);
+    res.send(del_User)
+})
+
 app.listen(3001, () => {
     console.log("SERVER RUNS")
 })
